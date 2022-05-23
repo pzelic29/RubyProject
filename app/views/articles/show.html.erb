@@ -1,21 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-<p>
-  <strong>Created by:</strong>
-  <%= @article.user.username %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-
-
-  <%= render 'comments/form' %>
+<div class="row">
+    <div class="col-lg-8">
+        <h1 style="font-size: 62.5px;">  
+         <%= @article.title %>
+        </h1>
+        <p class="lead">
+          <%= @article.user.username %>
+        </p>
+        <hr>
+        <p><span class="glyphicon glyphicon-time"></span> Was Posted: 
+        <hr>
+          <%= @article.body %>
+       
+        <hr>
+<%= render @article.comments %>
+        <%= render 'comments/form' %>  
+        <div class="well">
+    <h4></h4>
+        </div>
+        <hr>
+    </div>
+    <div class="col-md-4">
+        <div class="well">
+          <h4></h4>
+        </div>
+    </div>
+</div>
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
